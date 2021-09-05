@@ -9,6 +9,7 @@ def readBinaryData():
     print(bindata)
 
     # closing file
+    
     f.close()
 
 
