@@ -3,7 +3,17 @@ from functions import (
     readDataWithReadlineFun,
     readDataWithReadlinesFun,
     writeDataWithWriteFun,
-    writeDataWithWritelinesFun
+    writeDataWithWritelinesFun,
+    writeAndReadData,
+    readAndWriteData,
+    appendDataFile
 )
 
 readDataWithReadFun()
+# readDataWithReadlineFun()
+# readDataWithReadlinesFun()
+# writeDataWithWriteFun()
+# writeDataWithWritelinesFun()
+# writeAndReadData()
+# readAndWriteData()
+# appendDataFile()

@@ -57,3 +57,44 @@ def writeDataWithWritelinesFun():
 
     # closing file
     f.close()
+
+def writeAndReadData():
+    # opening file with write and read mode
+    f = open("data.txt", "w+")
+    
+    # writing with write(str) function
+    f.write("This will be written")
+
+    # seek(offset: int) used here to bring back cursor to start
+    f.seek(0)
+
+    # reading file
+    data = f.read()
+    print(data)
+
+    # closing file
+    f.close()
+
+    
+def readAndWriteData():
+    # opening file with rrad and write mode
+    f = open("data.txt", "r+")
+    
+    # writing with write(str) function
+    f.write("This will be written")
+
+    # seek(offset: int) used here to bring back cursor to start
+    f.seek(0)
+
+    # reading file
+    data = f.read()
+    print(data)
+
+    # closing file
+    f.close()
+
+def appendDataFile():
+    # opening file with append only mode
+    f = open("data.txt", "a")
+
+    f.write("This will be appended")
