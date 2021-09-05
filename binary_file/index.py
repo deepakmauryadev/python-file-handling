@@ -1,9 +1,11 @@
 from functions import (
     readBinaryData,
     writeBinaryData,
-    writeAndReadBinaryData
+    writeAndReadBinaryData,
+    appendBinaryData
 )
 
 readBinaryData()
 # writeBinaryData()
 # writeAndReadBinaryData()
+# appendBinaryData()

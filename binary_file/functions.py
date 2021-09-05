@@ -5,8 +5,12 @@ def readBinaryData():
     f = open("bindata.dat", "rb")
 
     # reading binary data with the help of pickle module
-    bindata = pickle.load(f)
-    print(bindata)
+    try:
+        bindata = pickle.load(f)
+        print(bindata)
+        
+    except EOFError:
+        pass
 
     # closing file
     f.close()
@@ -17,7 +21,7 @@ def writeBinaryData():
     f = open("bindata.dat", "wb")
 
     data = {
-        "id": 0,
+        "id": "0",
         "name": "writeBinaryData function"
     }
 
@@ -33,7 +37,7 @@ def writeAndReadBinaryData():
     f = open("bindata.dat", "wb+")
 
     data = {
-        "id": 1,
+        "id": "1",
         "name": "writeAndReadBinaryData function"
     }
 
@@ -53,25 +57,32 @@ def writeAndReadBinaryData():
     f.close()
 
 
-def readAndWriteBinaryData():
+def appendBinaryData():
     # opening file in read and write mode
     f = open("bindata.dat", "rb+")
 
+    # function to read file
+    def fetchBinaryData():
+        try:
+            f.seek(0)
+            return pickle.load(f)
+            
+        except EOFError:
+            pass
+
+    bindata = dict(fetchBinaryData())
+
     data = {
-        "id": 2,
-        "name": "readAndWriteBinaryData function"
+        "nickname": "appendBinaryData"
     }
 
-    # writing file
-    pickle.dump(data, f)
+    bindata.update(data)
 
-    # reading file
-    try:
-        bindata = pickle.load(f)
-        print(bindata)
-        
-    except EOFError:
-        pass
+    f.seek(0)
+    # writing file
+    pickle.dump(bindata, f)
+
+    print(fetchBinaryData())
 
     # closing file 
     f.close()
